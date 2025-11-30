@@ -4,9 +4,9 @@
             +----------------------+
             |   Frontend Web       |
             |----------------------|
-            | React.js + Bootstrap |
-            | (Single Page App)    |
-            | - Componentes:       |
+            | HTML + CSS + JS      |
+            | (Site Estático)      |
+            | - Página Unica:      |
             |   - Cadastro         |
             |   - Busca            |
             |   - Consulta         |
@@ -34,38 +34,43 @@
 Integrações externas:
 --------------------
 - API de envio de email do Google (EmailService)
-- API da Meta – WhatsApp Cloud API (WhatsAppService)
+
+---
 
 ## 1. Descrição da Arquitetura
 
 A arquitetura do sistema é **multicamadas**, organizada para separar responsabilidades entre frontend, backend, banco de dados e integrações externas.  
-O frontend é uma **Single Page Application (SPA)**, responsiva para dispositivos móveis, enquanto o backend é desenvolvido em **Spring Boot WebFlux (Java 21)**, garantindo escalabilidade e reatividade.  
-O MongoDB é utilizado como banco de dados NoSQL para armazenar profissionais, registradores e histórico de notificações.  
+O frontend é um **site estático** construído com **HTML, CSS e JavaScript**, responsável pela interface de cadastro, busca e consulta de profissionais.  
+O backend é desenvolvido em **Spring Boot WebFlux (Java 21)**, garantindo escalabilidade e reatividade.  
+O MongoDB é utilizado como banco de dados NoSQL para armazenar informações de profissionais e registradores.
 
 ---
 
 ## 2. Padrões Arquiteturais Utilizados
 
-- **MVC (Model-View-Controller)**: separação entre camada de apresentação, lógica de negócio e persistência  
-- **Repository Pattern**: abstração do acesso ao banco de dados  
-- **Service Layer**: encapsulamento de integrações externas (email e WhatsApp)  
-- **Single Page Application (SPA)**: frontend responsivo e dinâmico  
+- **MVC (Model-View-Controller)**: separação entre camada de apresentação, lógica de negócio e persistência
+- **Repository Pattern**: abstração do acesso ao banco de dados
+- **Service Layer**: encapsulamento de integrações externas (envio de email)
+- **Arquitetura Estática no Frontend**: páginas HTML/CSS/JS servidas diretamente, sem framework SPA
 
-## 2. Componentes do Sistema
+---
 
-1. **Frontend Web (SPA)**  
-   - React.js + Bootstrap  
-   - Componentes internos para cadastro, busca e consulta de profissionais  
-   - Responsivo para desktop e mobile  
+## 3. Componentes do Sistema
 
-2. **Backend (Spring Boot WebFlux)**  
-   - Handlers: implementam lógica de negócio  
-   - Repository: comunicação com o MongoDB  
-   - Services internos: lógica de envio de notificações  
+1. **Frontend Web (Site Estático)**
+    - HTML, CSS e JavaScript puro
+    - Páginas para cadastro, busca e consulta de profissionais
+    - Responsivo para desktop e mobile
 
-3. **Banco de Dados (MongoDB)**  
-   - Coleção Profissionais    
+2. **Backend (Spring Boot WebFlux)**
+    - Handlers: implementam lógica de negócio e endpoints reativos
+    - Repository: comunicação com o MongoDB
+    - Services internos: lógica de envio de notificações por email
 
-4. **Integrações Externas**  
-   - **EmailService**: API Google para envio de emails  
-   - **WhatsAppService**: API Meta (WhatsApp Cloud API) para notificações  
+3. **Banco de Dados (MongoDB)**
+    - Coleção `Profissionais` para armazenar dados de cadastro
+
+4. **Integrações Externas**
+    - **EmailService**: integração com API do Google para envio de emails
+
+---

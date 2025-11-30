@@ -21,8 +21,7 @@ A comunidade **PyLadies Fortaleza** foi escolhida como ponto de partida para imp
 A aplicação permitirá:  
 - **Cadastro completo de profissionais** com nome, área de atuação, contatos, descrição, link de portfólio e demais informações;  
 - **Busca e consulta** de profissionais por área e nome; 
-- **Notificações por email** para quem cadastra e para quem é cadastrado, usando a API de envio de email do Google;  
-- **Integração com WhatsApp** via API da Meta, permitindo consultas rápidas e envio de notificações dentro do grupo;  
+- **Notificações por email** para quem cadastra e para quem é cadastrado, usando a API de envio de email do Google;
 - **Interface web responsiva** para desktop e dispositivos móveis, desenvolvida com React.js + Bootstrap.
 
 ---
@@ -34,8 +33,7 @@ A arquitetura planejada é **multicamadas**, dividida entre frontend, backend, b
 - **Frontend Web:** React.js + Bootstrap  
 - **Backend:** Spring Boot WebFlux (Java 21)  
 - **Banco de Dados:** MongoDB  
-- **Integrações externas:**  
-  - API da Meta (WhatsApp Bot)  
+- **Integrações externas:**   
   - API de envio de email do Google
   
 ```text
@@ -44,8 +42,7 @@ A arquitetura planejada é **multicamadas**, dividida entre frontend, backend, b
 +----------------+        +----------------+        +----------------+
                                   |
                                   +-----> Email API (Google)
-                                  |
-                                  +-----> WhatsApp API (Meta)
+                                 
 ```
 
 ## Lista de Tecnologias Propostas
@@ -54,36 +51,6 @@ A arquitetura planejada é **multicamadas**, dividida entre frontend, backend, b
 - **Banco de Dados:** MongoDB
 - **Testes:** JUnit
 - **Integração de Email:** API Google
-- **Integração WhatsApp:** API da Meta (WhatsApp Cloud API)
 - **Controle de versão:** Git + GitHub
 
 ---
-
-## Cronograma de Desenvolvimento – 1 Mês
-
-| Semana | Atividade |
-|--------|-----------|
-| 1      | Criação da arquitetura; início do backend (endpoints principais) |
-| 2      | Desenvolvimento do backend completo, integração com MongoDB, testes unitários (JUnit) e documentação inicial das APIs |
-| 3      | Desenvolvimento do frontend web (telas de cadastro, busca e consulta), integração com backend; início da integração com WhatsApp (Meta API) e envio de emails (Google API) |
-| 4      | Finalização do frontend web, testes finais, ajustes de UX, validação de notificações, refinamento de documentação e entrega |
-
----
-
-## Validação com Público-Alvo
-
-O projeto **PyLadies Indicações** foi apresentado a uma representante da comunidade **PyLadies Fortaleza**.  
-O feedback recebido destacou que o sistema está **bem estruturado e útil** para a comunidade. Foi solicitado **remover a integração com WhatsApp**, já que não existe um número oficial da comunidade para esse fim, e as demais funcionalidades foram consideradas adequadas.
-
-A representante também demonstrou interesse em **adicionar o projeto ao site oficial da comunidade** quando a plataforma estiver pronta e enviou uma **sugestão de ajustes no frontend** para alinhar com o design que já está sendo construído para o site da PyLadies Fortaleza.
-
----
-
-## Integrantes da Equipe e Seus Papéis
-
-- **Mikaele dos Santos Aguiar** – Backend e implementação do MongoDB   
-- **[]** – Frontend e integração com backend  
-- **[]** – Integrações externas (email e WhatsApp)  
-- **[]** – Testes unitários (JUnit) e documentação técnica  
-- **[]** – Modelagem de banco de dados e diagrama ER; Contato com a comunidade PyLadies
-- **[]** – Prototipagem da interface e UX/UI

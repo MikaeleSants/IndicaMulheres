@@ -1,9 +1,10 @@
-# Especificação das APIs – PyLadies Indicações
+# Especificação das APIs
 
 ## 1. Base URL
 
 ```
-http://localhost:8080/profissionais
+local: http://localhost:8080/profissionais
+prod: https://mikaelesants.github.io/PyLadiesIndicacoesWeb/
 ```
 
 ## 2. Endpoints
@@ -16,13 +17,53 @@ http://localhost:8080/profissionais
 * **Parâmetros:** Nenhum
 * **Resposta (200 OK):**
 
-### 2.2 Buscar profissional por nome
+```json
+[
+  {
+    "id": "1",
+    "nome": "Alice",
+    "area": "TI",
+    "descricao": "Desenvolvedora backend",
+    "email": "alice@email.com",
+    "contato": "contato",
+    "linkedIn": "linkedin.com/alice",
+    "redeSocial": "instagram.com/alice.dev",
+    "camposEspecificos": { "senioridade": "Pleno" },
+    "registradorNome": "Mikaele",
+    "registradorEmail": "mika@example.com",
+    "dataDeCriacao": "2025-10-25"
+  }
+]
+```
 
-* **Rota:** `/profissionais/nome/{nome}`
+---
+
+### 2.2 Buscar profissional por ID
+
+* **Rota:** `/profissionais/{id}`
 * **Método:** GET
-* **Descrição:** Retorna profissionais cujo nome contém o termo pesquisado.
-* **Parâmetros:** `nome` (string, path)
-* **Resposta (200 OK):** mesma estrutura do endpoint `/profissionais`
+* **Descrição:** Retorna um profissional específico pelo seu ID.
+* **Parâmetros:** `id` (string, path)
+* **Resposta (200 OK):**
+
+```json
+{
+  "id": "1",
+  "nome": "Alice",
+  "area": "TI",
+  "descricao": "Desenvolvedora backend",
+  "email": "alice@email.com",
+  "contato": "contato",
+  "linkedIn": "linkedin.com/alice",
+  "redeSocial": "instagram.com/alice.dev",
+  "camposEspecificos": { "senioridade": "Pleno" },
+  "registradorNome": "Mikaele",
+  "registradorEmail": "mika@example.com",
+  "dataDeCriacao": "2025-10-25"
+}
+```
+
+---
 
 ### 2.3 Buscar profissional por área
 
@@ -30,9 +71,21 @@ http://localhost:8080/profissionais
 * **Método:** GET
 * **Descrição:** Retorna profissionais filtrados por área de atuação.
 * **Parâmetros:** `area` (string, path)
-* **Resposta (200 OK):** mesma estrutura do endpoint `/profissionais`
+* **Resposta (200 OK):** mesma estrutura do endpoint `/profissionais`.
 
-### 2.4 Cadastrar novo profissional
+---
+
+### 2.4 Buscar profissional por nome
+
+* **Rota:** `/profissionais/nome/{nome}`
+* **Método:** GET
+* **Descrição:** Retorna profissionais filtrados pelo nome.
+* **Parâmetros:** `nome` (string, path)
+* **Resposta (200 OK):** mesma estrutura do endpoint `/profissionais`.
+
+---
+
+### 2.5 Cadastrar novo profissional
 
 * **Rota:** `/profissionais`
 * **Método:** POST
@@ -42,17 +95,19 @@ http://localhost:8080/profissionais
 ```json
 {
   "nome": "Ana Souza",
-  "area_de_atuacao": "QA",
+  "area": "QA",
   "descricao": "Testadora de software",
   "email": "ana@email.com",
   "contato": "85988888888",
-  "link_portfolio": "http://portfolio.com/ana",
-  "link_redes_sociais": "http://linkedin.com/in/ana",
-  "campos_personalizados": {
+  "linkedIn": "http://linkedin.com/in/ana",
+  "redeSocial": "http://instagram.com/ana",
+  "camposEspecificos": {
     "certificacao": "ISTQB",
     "experiencia": "3 anos"
   },
-  "registrador_id": "usuario123"
+  "registradorNome": "Mikaele",
+  "registradorEmail": "mika@example.com",
+  "dataDeCriacao": "2025-10-25"
 }
 ```
 
@@ -65,7 +120,9 @@ http://localhost:8080/profissionais
 }
 ```
 
-### 2.5 Editar profissional
+---
+
+### 2.6 Editar profissional
 
 * **Rota:** `/profissionais/{id}`
 * **Método:** PUT
@@ -81,7 +138,9 @@ http://localhost:8080/profissionais
 }
 ```
 
-### 2.6 Deletar profissional
+---
+
+### 2.7 Deletar profissional
 
 * **Rota:** `/profissionais/{id}`
 * **Método:** DELETE
@@ -95,7 +154,9 @@ http://localhost:8080/profissionais
 }
 ```
 
-### 2.7 Listar áreas registradas
+---
+
+### 2.8 Listar áreas registradas
 
 * **Rota:** `/profissionais/areas`
 * **Método:** GET
@@ -110,3 +171,5 @@ http://localhost:8080/profissionais
   "UX/UI"
 ]
 ```
+
+---

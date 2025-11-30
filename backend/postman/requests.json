@@ -1,0 +1,129 @@
+{
+  "info": {
+    "name": "Profissional API",
+    "_postman_id": "12345-abcde-67890",
+    "description": "Collection para testar endpoints do ProfissionalHandler",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Listar profissionais",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/profissionais",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["profissionais"]
+        }
+      }
+    },
+    {
+      "name": "Buscar por área",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/profissionais/area/TI",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["profissionais", "area", "TI"]
+        }
+      }
+    },
+    {
+      "name": "Buscar por nome",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/profissionais/nome/Alice",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["profissionais", "nome", "Alice"]
+        }
+      }
+    },
+    {
+      "name": "Listar áreas",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/profissionais/areas",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["profissionais", "areas"]
+        }
+      }
+    },
+    {
+      "name": "Buscar por ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/profissionais/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["profissionais", "1"]
+        }
+      }
+    },
+    {
+      "name": "Salvar profissional",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Alice\",\n  \"area\": \"TI\",\n  \"descricao\": \"Desenvolvedora backend\",\n  \"email\": \"alice@email.com\",\n  \"contato\": \"contato\",\n  \"linkedIn\": \"linkedin.com/alice\",\n  \"redeSocial\": \"instagram.com/alice.dev\",\n  \"camposEspecificos\": { \"senioridade\": \"Pleno\" },\n  \"registradorNome\": \"Mikaele\",\n  \"registradorEmail\": \"mika@example.com\",\n  \"dataDeCriacao\": \"2025-10-25\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/profissionais",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["profissionais"]
+        }
+      }
+    },
+    {
+      "name": "Editar profissional",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Alice Atualizada\",\n  \"area\": \"TI\",\n  \"descricao\": \"Fullstack Developer\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/profissionais/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["profissionais", "1"]
+        }
+      }
+    },
+    {
+      "name": "Deletar profissional",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8080/profissionais/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["profissionais", "1"]
+        }
+      }
+    }
+  ]
+}

@@ -1,6 +1,8 @@
-const API_URL = "https://pyladiesindica-bddhcadba7bsgcgy.canadacentral-01.azurewebsites.net/profissionais";
-const API_AREA = "https://pyladiesindica-bddhcadba7bsgcgy.canadacentral-01.azurewebsites.net/profissionais/area/";
-const API_NOME = "https://pyladiesindica-bddhcadba7bsgcgy.canadacentral-01.azurewebsites.net/profissionais/nome/";
+const BASE_URL = "https://indicacoespyladies-czh6d3gbfxhgabb3.canadacentral-01.azurewebsites.net";
+
+const API_URL = `${BASE_URL}/profissionais`;
+const API_AREA = `${BASE_URL}/profissionais/area/`;
+const API_NOME = `${BASE_URL}/profissionais/nome/`;
 
 window.onload = () => {
     try {

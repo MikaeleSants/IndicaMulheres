@@ -44,29 +44,65 @@ A arquitetura planejada é **multicamadas**, dividida entre frontend, backend, b
 +----------------+        +----------------+        +----------------+
                                   |
                                   +-----> Email API (Google)
-                                  |
-                                  +-----> WhatsApp API (Meta)
+                                 
 ```
 
 ## Lista de Tecnologias Propostas
 - **Backend:** Java 21, Spring Boot WebFlux
-- **Frontend Web:** React.js + Bootstrap 
+- **Frontend Web:** Java Script, CSS e HTML
 - **Banco de Dados:** MongoDB
-- **Testes:** JUnit
+- **Testes:** JUnit (A etapa de testes foi incluida no build do deploy)
 - **Integração de Email:** API Google
-- **Integração WhatsApp:** API da Meta (WhatsApp Cloud API)
 - **Controle de versão:** Git + GitHub
+- **Plataforma de deploy:** Azure (back) e GitHub Pages (front)
+- 
+---
+
+## Instruções para Teste
+
+Para testar a aplicação, você pode utilizar:
+
+### 🔹 **Frontend Web**
+Acesse diretamente a versão publicada do site:
+
+**[https://mikaelesants.github.io/IndicaMulheres/](https://mikaelesants.github.io/IndicaMulheres/)**  
+
+
+### 🔹 **Backend API**
+Utilize a collection do Postman disponível no repositório para testar os endpoints da API:
+
+- **Collection Postman:** `https://.postman.co/workspace/My-Workspace~c62593ae-c8fc-4908-804c-540958815e2d/collection/40060547-ac291e7f-de69-4f6b-b524-54e39a2891a5?action=share&creator=40060547`
+- **URL base da API:**  
+  `https://indicacoespyladies-czh6d3gbfxhgabb3.canadacentral-01.azurewebsites.net`
+
+Principais endpoints disponíveis:
+- `GET /profissionais` – Lista todos os profissionais
+- `GET /profissionais/nome/{nome}` – Busca por nome
+- `GET /profissionais/area/{area}` – Busca por área
+- `POST /profissionais` – Cadastro de profissional
+
+Você pode importar a collection no Postman e realizar testes diretamente com os endpoints em produção.
+
+---
+
+## Justificativa de Mudanças
+
+Durante o desenvolvimento e deploy, algumas mudanças foram necessárias para garantir o funcionamento da aplicação:
+
+- O arquivo `script.js` foi movido para dentro da pasta `public`, pois o GitHub Pages só publica arquivos que estão dentro da pasta configurada no workflow. Essa mudança resolveu o erro 404 e garantiu que o frontend funcionasse corretamente.
+- A interface frontend foi reestruturada para utilizar **HTML + CSS + JavaScript puro**, em vez de React.js, para facilitar a **manutenção futura** e permitir integração direta com o site oficial da PyLadies Fortaleza, que já utiliza essa stack.
+- A funcionalidade de integração com a **API do WhatsApp da Meta** foi removida após conversa com a representante da comunidade, pois não há um número oficial da PyLadies Fortaleza para esse tipo de comunicação. A funcionalidade de envio de email foi mantida como canal principal de notificação.
 
 ---
 
 ## Cronograma de Desenvolvimento – 1 Mês
 
-| Semana | Atividade |
-|--------|-----------|
-| 1      | Criação da arquitetura; início do backend (endpoints principais) |
-| 2      | Desenvolvimento do backend completo, integração com MongoDB, testes unitários (JUnit) e documentação inicial das APIs |
+| Semana | Atividade                                                                                                                                                                  |
+|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1      | Criação da arquitetura; início do backend (endpoints principais)                                                                                                           |
+| 2      | Desenvolvimento do backend completo, integração com MongoDB, testes unitários (JUnit) e documentação inicial das APIs                                                      |
 | 3      | Desenvolvimento do frontend web (telas de cadastro, busca e consulta), integração com backend; início da integração com WhatsApp (Meta API) e envio de emails (Google API) |
-| 4      | Finalização do frontend web, testes finais, ajustes de UX, validação de notificações, refinamento de documentação e entrega |
+| 4      | Finalização do frontend web, testes finais, ajustes de UX, validação de notificações, refinamento de documentação e entrega                                                |
 
 ---
 
